@@ -72,8 +72,8 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('user.name'),
 //                Tables\Columns\TextColumn::make('published_at')
 //                    ->dateTime(),
-                Tables\Columns\TextColumn::make('category_post.title')
-                    ->dateTime(),
+//                Tables\Columns\TextColumn::make('categories.title')
+//                    ->dateTime(),
 //                Tables\Columns\TextColumn::make('created_at')
 //                    ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
