@@ -1,11 +1,11 @@
 <?php
-/** @var $posts LengthAwarePaginator*/
+/** @var $posts LengthAwarePaginator */
 
 use Illuminate\Pagination\LengthAwarePaginator;
 
 ?>
 
-<x-app-layout meta-description="The NearYou's personal blog">
+<x-app-layout :meta-title="'The NearYou blog - Post by category ' . $category->title" meta-description="By category description">
 
     <!-- Posts Section -->
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
@@ -14,7 +14,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
             <x-post-item :post="$post"></x-post-item>
         @endforeach
 
-    <!-- Pagination -->
+        <!-- Pagination -->
         {{ $posts->onEachSide(1)->links() }}
 
     </section>

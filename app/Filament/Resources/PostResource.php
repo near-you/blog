@@ -43,6 +43,8 @@ class PostResource extends Resource
                             ]),
                         Forms\Components\RichEditor::make('body')
                             ->required(),
+                        Forms\Components\TextInput::make('meta_title'),
+                        Forms\Components\TextInput::make('meta_description'),
                         Forms\Components\Toggle::make('active')
                             ->required(),
                         Forms\Components\DateTimePicker::make('published_at'),
@@ -65,17 +67,9 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('thumbnail'),
                 Tables\Columns\TextColumn::make('title'),
-//                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\IconColumn::make('active')
                 ->boolean(),
-//                Tables\Columns\TextColumn::make('body'),
                 Tables\Columns\TextColumn::make('user.name'),
-//                Tables\Columns\TextColumn::make('published_at')
-//                    ->dateTime(),
-//                Tables\Columns\TextColumn::make('categories.title')
-//                    ->dateTime(),
-//                Tables\Columns\TextColumn::make('created_at')
-//                    ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
             ])
