@@ -19,6 +19,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     </section>
 
+    <!-- Sidebar Section -->
     <x-sidebar/>
 
 </x-app-layout>
