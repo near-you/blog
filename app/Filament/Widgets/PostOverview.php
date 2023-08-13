@@ -11,6 +11,8 @@ class PostOverview extends Widget
 {
     protected int | string | array $columnSpan = 3;
 
+    protected static string $view = 'filament.widgets.post-overview';
+
     public ?Model $record = null;
 
     protected function getViewData(): array
@@ -21,6 +23,4 @@ class PostOverview extends Widget
             'downvotes' => UpvoteDownvote::query()->where('post_id', '=', $this->record->id)->where('is_upvote', '=', 0)->count(),
         ];
     }
-
-    protected static string $view = 'filament.widgets.post-overview';
 }

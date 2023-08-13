@@ -29,7 +29,7 @@ class AppLayout extends Component
             ->select( DB::raw('count(*) as total'), 'categories.title', 'categories.slug')
             ->where('posts.active', '=', 1)
             ->groupBy('categories.id')
-            ->orderByDesc('total')
+//            ->orderByDesc('total')
             ->limit(5)
             ->get();
 
