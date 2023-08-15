@@ -20,7 +20,7 @@
                 @foreach( $popularPosts as $post )
                     <div class="grid grid-cols-4 gap-2 mb-5">
                         <a href="{{ route('view', $post) }}" class="pt-1">
-                            <img src="{{ $post->getThumbnail() }}" alt="{{ $post->title }}"/>
+                            <img src="{{ $post->getThumbnail() }}" alt="{{ $post->title }}" class="aspect-[4/3] object-contain" />
                         </a>
 
                         <div class="col-span-3">
@@ -71,7 +71,7 @@
             </h2>
             @foreach( $categories as $category )
                 <div class="mb-6">
-                    <h3 class="text-xl text-center font-bold uppercase">
+                    <h3 class="text-2xl font-bold uppercase">
                         {{ $category->title }}
                     </h3>
                     <div class="grid grid-col-1 md:grid-cols-3 gap-3">

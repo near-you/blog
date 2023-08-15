@@ -84,7 +84,7 @@ class PostController extends Controller
             ->leftJoin('posts', 'posts.id', '=', 'category_post.post_id')
             ->orderByDesc('max_date')
             ->groupBy('categories.id')
-            ->limit(5)
+            ->limit(3)
             ->get();
 
         return view('home', compact('latestPost', 'popularPosts', 'recommendedPosts', 'categories'));
