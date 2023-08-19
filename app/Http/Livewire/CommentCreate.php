@@ -35,7 +35,7 @@ class CommentCreate extends Component
     public function createComment()
     {
         $user = auth()->user();
-        if (!$user) {
+        if (! $user) {
             return $this->redirect('/login');
         }
 

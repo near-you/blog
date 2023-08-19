@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostOverview extends Widget
 {
-    protected int | string | array $columnSpan = 3;
+    protected int|string|array $columnSpan = 3;
 
     protected static string $view = 'filament.widgets.post-overview';
 

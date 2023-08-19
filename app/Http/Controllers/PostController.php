@@ -42,9 +42,9 @@ class PostController extends Controller
         $user = auth()->user();
 
         if ($user) {
-            $leftJoin = "(SELECT cp.category_id, cp.post_id FROM upvote_downvotes
+            $leftJoin = '(SELECT cp.category_id, cp.post_id FROM upvote_downvotes
                           JOIN category_post cp ON upvote_downvotes.post_id = cp.post_id
-                          WHERE upvote_downvotes.is_upvote = 1 AND upvote_downvotes.user_id = ?) as t";
+                          WHERE upvote_downvotes.is_upvote = 1 AND upvote_downvotes.user_id = ?) as t';
             $recommendedPosts = Post::query()
                 ->leftJoin('category_post as cp', 'posts.id', '=', 'cp.post_id')
                 ->leftJoin(DB::raw($leftJoin), function ($join) {
@@ -70,7 +70,6 @@ class PostController extends Controller
                 ->get();
         }
 
-
         // Show recent categories with their latest posts
         $categories = Category::query()
             ->whereHas('posts', function ($query) {
@@ -92,7 +91,7 @@ class PostController extends Controller
 
     public function show(Post $post, Request $request): View
     {
-        if (!$post->active || $post->published_at > Carbon::now()) {
+        if (! $post->active || $post->published_at > Carbon::now()) {
             throw new NotFoundHttpException();
         }
 

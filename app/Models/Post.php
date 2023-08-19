@@ -22,7 +22,7 @@ class Post extends Model
         'published_at',
         'user_id',
         'meta_title',
-        'meta_description'
+        'meta_description',
     ];
 
     protected $casts = [
@@ -54,7 +54,8 @@ class Post extends Model
         if (str_starts_with($this->thumbnail, 'http')) {
             return $this->thumbnail;
         }
-        return '/storage/' . $this->thumbnail;
+
+        return '/storage/'.$this->thumbnail;
     }
 
     public function humanReadTime(): Attribute
@@ -64,8 +65,8 @@ class Post extends Model
                 $words = Str::wordCount(strip_tags($attributes['body']));
                 $minutes = ceil($words / 200);
 
-                return $minutes . ' ' . str('min')->plural($minutes) . ', '
-                    . $words . ' ' . str('word')->plural($words);
+                return $minutes.' '.str('min')->plural($minutes).', '
+                    .$words.' '.str('word')->plural($words);
             }
         );
     }

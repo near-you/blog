@@ -1,8 +1,9 @@
 <article class="bg-white flex flex-col shadow my-4">
+
     <!-- Article Image -->
-    <a href="{{ route('view', $post) }}">
-        <img src="{{ $post->getThumbnail() }}" alt="{{ $post->title }}" class="object-contain">
-    </a>
+{{--        <a href="{{ route('view', $post) }}">--}}
+            <img src="{{ $post->getThumbnail() }}" alt="{{ $post->title }}" class="object-contain h-200 w-auto">
+{{--        </a>--}}
 
     <div class="bg-white flex flex-col justify-start p-6">
         <div class="flex gap-4">

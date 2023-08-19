@@ -27,6 +27,7 @@ class Comments extends Component
     public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $comments = $this->selectComments();
+
         return view('livewire.comments', compact('comments'));
     }
 

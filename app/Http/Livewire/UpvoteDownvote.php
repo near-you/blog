@@ -9,10 +9,12 @@ use Livewire\Component;
 class UpvoteDownvote extends Component
 {
     public Post $post;
+
     public function mount(Post $post)
     {
         $this->post = $post;
     }
+
     public function render()
     {
         $upvotes = \App\Models\UpvoteDownvote::query()
@@ -40,7 +42,7 @@ class UpvoteDownvote extends Component
                 ->where('user_id', '=', $user->id)
                 ->first();
             if ($model) {
-                $hasUpvote = (bool)$model->is_upvote;
+                $hasUpvote = (bool) $model->is_upvote;
             }
         }
 
@@ -52,11 +54,11 @@ class UpvoteDownvote extends Component
         /** @var User $user */
         $user = request()->user();
 
-        if (!$user) {
+        if (! $user) {
             return $this->redirect('login');
         }
 
-        if (!$user->hasVerifiedEmail()) {
+        if (! $user->hasVerifiedEmail()) {
             return $this->redirect(route('verification.notice'));
         }
 
@@ -65,18 +67,18 @@ class UpvoteDownvote extends Component
             ->where('user_id', '=', $user->id)
             ->first();
 
-        if (!$model) {
+        if (! $model) {
             \App\Models\UpvoteDownvote::query()
-            ->create([
-                'is_upvote' => $upvote,
-                'post_id' => $this->post->id,
-                'user_id' => $user->id
-            ]);
+                ->create([
+                    'is_upvote' => $upvote,
+                    'post_id' => $this->post->id,
+                    'user_id' => $user->id,
+                ]);
 
             return;
         }
 
-        if ($upvote && $model->is_upvote || !$upvote && !$model->is_upvote) {
+        if ($upvote && $model->is_upvote || ! $upvote && ! $model->is_upvote) {
             $model->delete();
         } else {
             $model->is_upvote = $upvote;

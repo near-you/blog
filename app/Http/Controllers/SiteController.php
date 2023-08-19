@@ -14,8 +14,8 @@ class SiteController extends Controller
             ->where('key', '=', 'about-page')
             ->where('active', '=', true)
             ->first();
-        
-        if (!$widget) {
+
+        if (! $widget) {
             throw new NotFoundHttpException();
         }
 

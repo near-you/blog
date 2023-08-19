@@ -26,7 +26,7 @@ class AppLayout extends Component
         $categories = Category::query()
             ->leftJoin('category_post', 'categories.id', '=', 'category_post.category_id')
             ->leftJoin('posts', 'posts.id', '=', 'category_post.post_id')
-            ->select( DB::raw('count(*) as total'), 'categories.title', 'categories.slug')
+            ->select(DB::raw('count(*) as total'), 'categories.title', 'categories.slug')
             ->where('posts.active', '=', 1)
             ->groupBy('categories.id')
 //            ->orderByDesc('total')

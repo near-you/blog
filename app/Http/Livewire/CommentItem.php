@@ -26,6 +26,7 @@ class CommentItem extends Component
     {
         $this->comment = $comment;
     }
+
     public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('livewire.comment-item');
@@ -34,7 +35,7 @@ class CommentItem extends Component
     public function deleteComment()
     {
         $user = auth()->user();
-        if (!$user) {
+        if (! $user) {
             return $this->redirect('/login');
         }
 

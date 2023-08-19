@@ -20,7 +20,7 @@ class ViewPost extends ViewRecord
 
     protected function getHeaderWidgets(): array
     {
-        return[
+        return [
             PostOverview::class,
         ];
     }
